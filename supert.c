@@ -1,28 +1,31 @@
 #include <stdio.h>
 #include <stdbool.h>    
 #include <stdlib.h>
-#include <unistd.h> // Para sleep() e system()
+#include <unistd.h> // Para sleep() e system(
+
+
+
 
 int main() {
     // Informações para São Paulo
-    char EstadoSP[50] = "SP";
-    char CodigoCartaSP[50] = "01";
-    char NomeCidadeSP[100] = "São Paulo";
-    int PopulacaoSP = 12300000;
+    // Removed unused variable EstadoSP
+    // char CodigoCartaSP[50] = "01";
+    // char NomeCidadeSP[100] = "São Paulo";
+    float PopulacaoSP = 12300000;
     float AreaSP = 30000.0;
-    float PIBSP = 699.28; // Valor exemplo em bilhões
+    float PIBSP = 699.28f; // Valor exemplo em bilhões
     float PIBPerCapitaSP = PIBSP / PopulacaoSP * 1000000; // Calculando PIB per capita
-    int NumerodePontosTuristicosSP = 15;
+    float NumerodePontosTuristicosSP = 15;
 
     // Informações para Rio de Janeiro
-    char EstadoRJ[50] = "RJ";
-    char CodigoCartaRJ[50] = "02";
-    char NomeCidadeRJ[100] = "Rio de Janeiro";
-    int PopulacaoRJ = 6748000;
+    // char EstadoRJ[50] = "RJ";
+    // char CodigoCartaRJ[50] = "02";
+    // char NomeCidadeRJ[100] = "Rio de Janeiro";
+    float PopulacaoRJ = 6748000;
     float AreaRJ = 12000.0;
     float PIBRJ = 400.0; // Valor exemplo em bilhões
     float PIBPerCapitaRJ = PIBRJ / PopulacaoRJ * 1000000; // Calculando PIB per capita
-    int NumerodePontosTuristicosRJ = 10;
+    float NumerodePontosTuristicosRJ = 10;
 
     // Calculando densidade populacional para ambas as cidades
     
@@ -74,7 +77,7 @@ int main() {
                 }
                 break;
             case 4: // PIB per capita
-                if (PIBPerCapitaSP > PIBPerCapitaSP) {
+                if (PIBPerCapitaSP > PIBPerCapitaRJ) {
                     printf("São Paulo vence em PIB per capita.\n");
                 } else if (PIBPerCapitaSP < PIBPerCapitaRJ) {
                     printf("Rio de Janeiro vence em PIB per capita.\n");
