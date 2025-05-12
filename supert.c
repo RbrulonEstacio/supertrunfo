@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdbool.h>    
 #include <stdlib.h>
-#include <unistd.h> // Para sleep() e system(
-
-
-
+#include <unistd.h> // Para 
+#include <locale.h>
+#include <string.h> // Para usar a fun√ß√£o strcpy
 
 int main() {
+    // setlocale(LC_NUMERIC, "Portuguese_Brazil"); // Configura o locale para portugu√™s
+    // setlocale(LC_ALL, ""); // Configura o locale para o padr√£o do sistema
+
     // Informa√ß√µes para S√£o Paulo
-    // Removed unused variable EstadoSP
     // char CodigoCartaSP[50] = "01";
     // char NomeCidadeSP[100] = "S√£o Paulo";
     float PopulacaoSP = 12300000;
@@ -25,7 +26,7 @@ int main() {
     float AreaRJ = 12000.0;
     float PIBRJ = 400.0; // Valor exemplo em bilh√µes
     float PIBPerCapitaRJ = PIBRJ / PopulacaoRJ * 1000000; // Calculando PIB per capita
-    float NumerodePontosTuristicosRJ = 10;
+    float NumerodePontosTuristicosRJ = 20;
 
     // Calculando densidade populacional para ambas as cidades
     
@@ -35,14 +36,14 @@ int main() {
    
     int escolha;
     printf("Escolha um atributo para comparar:\n");
-    printf("1. Popula√ß√£o\n");
-    printf("2. √Årea\n");
+    printf("1. PopulaÁ„o\n");
+    printf("2. ¡rea\n");
     printf("3. PIB\n");
     printf("4. PIB per capita\n");
-    printf("5. N√∫mero de pontos tur√≠sticos\n");
+    printf("5. N˙mero de pontos turÌsticos\n");
     printf("6. Densidade populacional\n");
     printf("7. Sair\n");
-    printf("Digite o n√∫mero correspondente ao atributo: ");
+    printf("Digite o N˙mero correspondente ao atributo: ");
   
 
     scanf("%d", &escolha); 
@@ -51,25 +52,25 @@ int main() {
         switch (escolha) {
             case 1: // Popula√ß√£o
                 if (PopulacaoSP > PopulacaoRJ) {
-                    printf("S√£o Paulo vence em popula√ß√£o.\n");
+                    printf("S„o Paulo vence em populaÁ„o.\n");
                 } else if (PopulacaoSP < PopulacaoRJ) {
-                    printf("Rio de Janeiro vence em popula√ß√£o.\n");
+                    printf("Rio de Janeiro vence em populaÁ„o.\n");
                 } else {
-                    printf("Ambas as cidades t√™m a mesma popula√ß√£o.\n");
+                    printf("Ambas as cidades tÍm a mesma populaÁ„o.\n");
                 }
                 break;
             case 2: // √Årea
                 if (AreaSP > AreaRJ) {
-                    printf("S√£o Paulo vence em √°rea.\n");
+                    printf("S„o Paulo vence em ¡rea.\n");
                 } else if (AreaSP < AreaRJ) {
-                    printf("Rio de Janeiro vence em √°rea.\n");
+                    printf("Rio de Janeiro vence em ¡rea.\n");
                 } else {
-                    printf("Ambas as cidades t√™m a mesma √°rea.\n");
+                    printf("Ambas as cidades t√™m a mesma ¡rea.\n");
                 }
                 break;
             case 3: // PIB
                 if (PIBSP > PIBRJ) {
-                    printf("S√£o Paulo vence em PIB.\n");
+                    printf("S„o Paulo vence em PIB.\n");
                 } else if (PIBSP < PIBRJ) {
                     printf("Rio de Janeiro vence em PIB.\n");
                 } else {
@@ -78,7 +79,7 @@ int main() {
                 break;
             case 4: // PIB per capita
                 if (PIBPerCapitaSP > PIBPerCapitaRJ) {
-                    printf("S√£o Paulo vence em PIB per capita.\n");
+                    printf("S„o Paulo vence em PIB per capita.\n");
                 } else if (PIBPerCapitaSP < PIBPerCapitaRJ) {
                     printf("Rio de Janeiro vence em PIB per capita.\n");
                 } else {
@@ -86,42 +87,43 @@ int main() {
                 }
                 break;
             case 5: // N√∫mero de pontos tur√≠sticos
-                if (NumerodePontosTuristicosSP > NumerodePontosTuristicosRJ){
-                    printf("S√£o Paulo vence em n√∫mero de pontos tur√≠sticos.\n");
+                if (NumerodePontosTuristicosSP >= NumerodePontosTuristicosRJ){
+                    printf("S„o Paulo vence em N˙mero de pontos turÌsticos.\n");
                 } else if (NumerodePontosTuristicosSP < NumerodePontosTuristicosRJ) {
-                    printf("Rio de Janeiro vence em n√∫mero de pontos tur√≠sticos.\n");
+                    printf("Rio de Janeiro vence em N˙mero de pontos turÌsticos.\n");
                 } else {
-                    printf("Ambas as cidades t√™m o mesmo n√∫mero de pontos tur√≠sticos.\n");
+                    printf("Ambas as cidades t√™m o mesmo N˙mero de pontos turÌsticos.\n");
                 }
                 break;
             case 6: // Densidade populacional
                 if (DensidadeSaoPaulo < DensidadeRioDeJaneiro) {
-                    printf("S√£o Paulo vence em densidade populacional (menor √© melhor).\n");
+                    printf("S„o Paulo vence em densidade populacional (menor È melhor).\n");
                 } else if (DensidadeSaoPaulo > DensidadeRioDeJaneiro) {
-                    printf("Rio de Janeiro vence em densidade populacional (menor √© melhor).\n");
+                    printf("Rio de Janeiro vence em densidade populacional (menor È melhor).\n");
                 } else {
-                    printf("Ambas as cidades t√™m a mesma densidade populacional.\n");
+                    printf("Ambas as cidades tÍm a mesma densidade populacional.\n");
                 }
                 break;
             case 7:
                 printf("Saindo do programa.\n"); 
-                system("clear");       
+                ;       
                 return 0;
+                system("cls");
             default:
-                printf("Op√ß√£o inv√°lida.\n");
+                printf("OpÁ„o Inv·lida.\n");
                 break;
         }
 
         sleep(5); // Pausa de 5 segundos
 
-        system("clear"); // Para Linux/Unix/MacOS
-        // system("cls"); // Descomente para Windows
+
+        system("cls"); // Descomente para Windows
         printf("\nEscolha um atributo para comparar novamente:\n");
-        printf("1. Popula√ß√£o\n");
-        printf("2. √Årea\n");
+        printf("1. PopulaÁ„o\n");
+        printf("2. ¡rea\n");
         printf("3. PIB\n");
         printf("4. PIB per capita\n");
-        printf("5. N√∫mero de pontos tur√≠sticos\n");
+        printf("5. N˙mero de pontos turÌstico\n");
         printf("6. Densidade populacional\n");
         printf("7. Sair\n");
         printf("Digite o n√∫mero correspondente ao atributo: ");
@@ -130,4 +132,3 @@ int main() {
 
     return 0;
 }
-
